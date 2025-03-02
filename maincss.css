@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; 
+    color: #fff;           
+    font-family: "Integral cf", sans-serif;
+    background-image: url('mali.jpg'); 
+    background-size: cover;    
+    background-position: top; 
+    background-repeat: no-repeat;
+    transition: background-color 0.5s ease;
+  }
+  body.darkened {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: background-color 1s ease, backdrop-filter 1s ease;
+    z-index: -1;
+  }
+  body.darkened::after {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+  }
+  
+  header {
+    text-align: center;
+    padding: 5px;
+  }
+  .titel {
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .untertitel {
+    font-size: 1.5em;
+    color: white; 
+    font-weight: normal;
+  }
+  
+  .login-container, .content {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+    pointer-events: auto;
+    border-radius: 25px;
+  }
+  .login-container {
+    margin-top: 20px;
+  }
+  
+  .login-container input {
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 20px;
+    border: none;
+    background-color: #222;
+    color: #fff;
+  }
+  .login-container button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: white;
+    color: #000;
+    cursor: pointer;
+    border-radius: 25px;
+  }
+  .login-container button:hover {
+    background-color: white;
+  }
+  
+  .content {
+    display: none;
+    padding: 30px; 
+    width: 100%;
+    min-height: 700px; 
+    border-radius: 25px;
+  }
+  
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 150px;
+    width: 150%;
+    justify-items: center;
+    margin-top: 10px;
+  }
+  
+  .video-teil {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .video-teil video {
+    width: 200%;
+    max-width: 100%;
+    height: center; 
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    margin-top: 1px;
+  }
+
+  .video-teil.centered video {
+    transform: scale(1.2);
+  }
+  .accordion-video {
+    background-color: #222;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 50px;
+  }
+  .accordion-video:hover, .accordion-video.active {
+    background-color: #333;
+  }
+  
+  .panel-video {
+    background-color: #111;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    margin-top: 5px;
+    width: 100%;
+    text-align: left;
+  }
+  .panel-video.open {
+    max-height: 500px;
+    padding: 10px;
+  }
+  .panel-video p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  #draggable-container {
+    overflow-x: auto;
+    cursor: grab;
+    width: 100%;
+  }
+  #draggable-container.active {
+    cursor: grabbing;
+  }
+  
+  .video-teil.centered p {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+  }
+  .video-teil.centered .accordion-video {
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+  
+  .video-teil .accordion-video {
+    margin-top: 5px;
+  }
